@@ -272,26 +272,9 @@ public class Calculator{
 /*checking when string  with calculation is empty and wish to put a dot,
  * function prints 0 before dot. also after a sign like +/-*.      */
 	public String checkIfEmptyDot(String t) {
-		/*Pattern s = Pattern.compile("[-*+/]");
-		Matcher sm = s.matcher(t);
-		int sign;
-		if(sm.find() == true){
-			sign = 2;
-			
-			if(isSign == true) {
-						String tempSb = sb;
-						sb = "";
-						for(int i = 0;i < (tempSb.length()-1);i++)
-							sb = sb + tempSb.charAt(i);
-						if(sb.length()> 0)sb = sb + "/";
-						screen.setText(sb);
-					}else{
-			
-		}*/
 		char lastSign = ' ';
 		if(t.length()>0) {
 			lastSign = t.charAt(t.length()-1);
-			System.out.println("lastSign: " + lastSign);
 		}
 		if (t.length() == 0) {
 			t = "0";
@@ -336,18 +319,15 @@ public class Calculator{
 	}
 
 	public int checkPattern(String t) {
-		//Pattern p = Pattern.compile("(\\d*\\.?\\d*)");
 		Pattern p = Pattern.compile("(\\d+\\.?)+");
 		Matcher m = p.matcher(t);
 		int counter = 0;
 		while(m.find()) {
 			counter++ ;
 		}
-		System.out.println("CheckPattern: t: " + t + "counter: " + counter);
 		return counter;
 	}
 	public double calculate(String t) {
-		//Pattern p = Pattern.compile("(\\d*\\.?\\d*)");
 		Pattern p = Pattern.compile("(\\d+\\.?)+");
 		Matcher m = p.matcher(t);
 		m.find();
@@ -381,11 +361,5 @@ public class Calculator{
 			}
 		}
 		return result;
-	}
-	public String add(String in) {
-		return "niezrobiona";
-	}
-	public String setFlag(String in){
-		return "niezrobiona";
 	}
 }
